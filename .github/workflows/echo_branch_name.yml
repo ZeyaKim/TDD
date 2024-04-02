@@ -1,0 +1,16 @@
+name: Print GitHub ref on push
+
+on:
+  push:
+    branches:
+      - feature-*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+      - name: Print GitHub ref
+        run: echo "The GitHub ref is ${{ github.ref }}"
+  
