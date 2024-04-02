@@ -3,7 +3,7 @@ import re
 
 if len(sys.argv) == 2:
     branch_name = sys.argv[1]
-    pattern = re.compile(r'feature-(\w+)/(.+)')
+    pattern = re.compile(r'.*feature-(\w+)/(.+)')
     matches = pattern.match(branch_name)
 
     if matches:
