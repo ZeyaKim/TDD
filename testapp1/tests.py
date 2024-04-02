@@ -13,3 +13,7 @@ class SayHelloTestCase(TestCase):
 
     def test_say_empty(self):
         self.assertEqual(say_hello(False), None)
+
+class IntergrationTestCase(TestCase):
+    def test_integration(self):
+        self.assertEqual(say_hello(), 'hello')
