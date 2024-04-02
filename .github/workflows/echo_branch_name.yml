@@ -1,6 +1,9 @@
 name: Print GitHub ref on push
 
-on: push
+on:
+  push:
+    branches:
+      - feature-**
 
 jobs:
   test:
