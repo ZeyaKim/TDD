@@ -7,6 +7,5 @@ jobs:
         - name: Checkout code
           uses: actions/checkout@v3
         - name: Run a script
-          if: startsWith(github.head_ref, 'feature-')
-          run: echo "This runs on pull requests from branches starting with feature- to branch b."
+          run: echo "This runs on pull requests from branches starting ${{ github.head_ref }}."
   
