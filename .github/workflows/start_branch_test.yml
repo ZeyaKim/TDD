@@ -1,4 +1,8 @@
-on: push
+name: Print branch name on pull request
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
     example-job:
