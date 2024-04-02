@@ -21,10 +21,8 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
 
-    - name: Extrach Test Range
+    - name: Run tests
       run: |
         output=$(python3 utils/parse_branch_name.py ${{ github.ref }})
         read app_name tc_name <<< $output
-
-    - name: Run tests
-      run: python3 manage.py test ${app_name}.tests.${tc_name}
+        python3 manage.py test ${app_name}.tests.${tc_name}
