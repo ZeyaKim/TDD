@@ -21,6 +21,6 @@ jobs:
 
       - name: Run tests
         run: |
-          output=$(python3 utils/parse_branch_name.py ${{ github.ref }})
+          output=$(python3 utils/parse_feature_branch.py ${{ github.ref }})
           read app_name tc_name <<< $output
           python3 manage.py test ${app_name}.tests.IntergrationTestCase
