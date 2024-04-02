@@ -1,0 +1,26 @@
+name: Intergration test on Pull Request
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+    example-job:
+      runs-on: ubuntu-latest
+      steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Set up Python
+        uses: actions/setup-python@v3
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt  
+
+      - name: Run tests
+        run: |
+          output=$(python3 utils/parse_branch_name.py ${{ github.ref }})
+          read app_name tc_name <<< $output
+          python3 manage.py test ${app_name}.tests.IntergrationTestCase
