@@ -10,3 +10,6 @@ class SayHelloTestCase(TestCase):
 
     def test_say_hi(self):
         self.assertNotEqual(say_hello(False), 'hello')
+
+    def test_say_wrong(self):
+        self.assertEqual(say_hello(), 'hi')
